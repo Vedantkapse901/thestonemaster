@@ -1,13 +1,505 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>The Stone Master - Mahad Stone Carvings</title>
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.jsx"></script>
-  </body>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>THE STONE MASTER | Ancient Craft. Modern Mastery.</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=Lato:ital,wght@0,300;0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="admin.css">
+</head>
+<body>
+
+    <!-- Loading overlay (first paint) -->
+    <div id="loading-screen" aria-hidden="true">
+        <div class="loading-crack">
+            <svg viewBox="0 0 1200 800" preserveAspectRatio="none" aria-hidden="true">
+                <path d="M0,400 Q300,200 600,400 T1200,380 L1200,800 L0,800 Z" />
+            </svg>
+        </div>
+        <div class="loading-title" aria-label="The Stone Master"></div>
+    </div>
+
+    <!-- Sitewide stone-dust particles (2D canvas) -->
+    <canvas id="particle-canvas" aria-hidden="true"></canvas>
+
+    <div class="page-shell">
+
+    <nav>
+        <a href="#" class="logo" onclick="showPage('home', event)">⛏ <span data-company="name">THE STONE MASTER</span></a>
+        <div class="nav-links">
+            <a href="#" class="nav-link active" onclick="showPage('home', event)">Home</a>
+            <a href="#" class="nav-link" onclick="showPage('about', event)">Our Story</a>
+            <a href="#" class="nav-link" onclick="showPage('services', event)">Mastery</a>
+            <a href="#" class="nav-link" onclick="showPage('gallery', event)">Gallery</a>
+            <a href="#" class="nav-link" onclick="showPage('custom', event)">Custom Order</a>
+            <a href="#" class="nav-link" onclick="showPage('contact', event)">Contact</a>
+        </div>
+    </nav>
+
+    <!-- HOME PAGE -->
+    <div id="home" class="page active">
+        <section class="hero">
+            <div id="hero-three-canvas" aria-hidden="true"></div>
+            <div class="hero-bg-parallax hero-parallax-layer" aria-hidden="true"></div>
+            <div class="hero-inner">
+                <h1 class="hero-title hero-shimmer hero-parallax-layer"><span class="hero-title-text">THE STONE MASTER</span></h1>
+                <p class="hero-sub" data-company="tagline">WE CARVE YOUR VISION INTO ETERNITY</p>
+                <a href="#" class="cta-btn enquiry-trigger">Get a Quote</a>
+                <a href="#" class="cta-btn" style="margin-left: 0.75rem;" onclick="showPage('gallery', event)">Explore Our Work</a>
+            </div>
+        </section>
+
+        <div class="section-divider" aria-hidden="true">
+            <svg viewBox="0 0 1200 48" preserveAspectRatio="none"><path d="M0,24 L150,8 L300,32 L450,12 L600,36 L750,16 L900,40 L1050,20 L1200,28 L1200,48 L0,48 Z" /></svg>
+        </div>
+
+        <section class="stats-bar">
+            <div class="stat-item">
+                <h3 class="stat-num">500+</h3>
+                <p>Projects Completed</p>
+            </div>
+            <div class="stat-item">
+                <h3 class="stat-num">20+</h3>
+                <p>Years of Tradition</p>
+            </div>
+            <div class="stat-item">
+                <h3 class="stat-num">100%</h3>
+                <p>Custom Crafted</p>
+            </div>
+            <div class="stat-item">
+                <h3 class="stat-num">PAN</h3>
+                <p>India Delivery</p>
+            </div>
+        </section>
+
+        <div class="section-divider" aria-hidden="true">
+            <svg viewBox="0 0 1200 48" preserveAspectRatio="none"><path d="M0,28 L200,40 L400,10 L600,38 L800,14 L1000,42 L1200,22 L1200,48 L0,48 Z" /></svg>
+        </div>
+
+        <section style="padding: 100px 10%; text-align: center;">
+            <div class="reveal-on-scroll reveal-3d">
+                <h2 style="font-size: 2.5rem; color: var(--gold); margin-bottom: 2rem;">Raigad's Legacy of Stone</h2>
+                <p data-company="about" style="max-width: 800px; margin: 0 auto; font-size: 1.1rem; opacity: 0.8;">
+                    In the heart of Maharashtra, where the rugged Sahyadri mountains whisper tales of Maratha pride, we practice the ancient art of stone masonry. From intricate temple sanctums to modern architectural marvels, our chisels breathe life into the silent earth.
+                </p>
+            </div>
+        </section>
+    </div>
+
+    <!-- ABOUT PAGE -->
+    <div id="about" class="page">
+        <section style="padding: 4rem 10%;">
+            <h2 class="reveal-3d" style="font-size: 3rem; color: var(--gold); border-bottom: 1px solid var(--gold); padding-bottom: 1rem; margin-bottom: 3rem;">Rooted in Tradition</h2>
+            <div class="about-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center;">
+                <div class="reveal-3d">
+                    <p style="margin-bottom: 1.5rem;">Founded in Raigad, The Stone Master began as a small family atelier dedicated to the preservation of traditional Indian stone carving techniques. Our founder, a master sculptor with over 40 years of experience, believed that stone is the only medium capable of capturing the true permanence of human emotion.</p>
+                    <p>Today, we blend those ancient techniques with modern precision tools to create bespoke art pieces that stand the test of time, weather, and shifting trends.</p>
+                </div>
+                <div class="about-image-wrap reveal-card-3d">
+                    <div class="about-image-parallax" style="background-size: cover; background-position: center;"></div>
+                </div>
+            </div>
+
+            <div style="margin-top: 6rem;">
+                <h3 style="text-align: center; margin-bottom: 3rem;">The Master Craftsmen</h3>
+                <div class="services-grid">
+                    <div class="service-card reveal-card-3d" style="text-align: center;">
+                        <div class="tilt-shine"></div>
+                        <div style="width: 150px; height: 150px; border-radius: 50%; margin: 0 auto 1.5rem; background: linear-gradient(135deg, #4a4845, #2a2a27); border: 2px solid rgba(201,168,76,0.3);"></div>
+                        <h3>Arjun Shinde</h3>
+                        <p style="color: var(--gold);">Chief Sculptor</p>
+                        <p style="font-size: 0.8rem;">Specialist in Portraiture and Figurative Art.</p>
+                    </div>
+                    <div class="service-card reveal-card-3d" style="text-align: center;">
+                        <div class="tilt-shine"></div>
+                        <div style="width: 150px; height: 150px; border-radius: 50%; margin: 0 auto 1.5rem; background: linear-gradient(135deg, #5a5854, #1a1a18); border: 2px solid rgba(201,168,76,0.3);"></div>
+                        <h3>Vikram Patil</h3>
+                        <p style="color: var(--gold);">Temple Architect</p>
+                        <p style="font-size: 0.8rem;">Master of Vastu Shastra and Religious Iconography.</p>
+                    </div>
+                    <div class="service-card reveal-card-3d" style="text-align: center;">
+                        <div class="tilt-shine"></div>
+                        <div style="width: 150px; height: 150px; border-radius: 50%; margin: 0 auto 1.5rem; background: linear-gradient(135deg, #3d3d3a, #2a2a27); border: 2px solid rgba(201,168,76,0.3);"></div>
+                        <h3>Sameer More</h3>
+                        <p style="color: var(--gold);">Detail Artisan</p>
+                        <p style="font-size: 0.8rem;">Expert in Geometric Patterns and Lettering.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- SERVICES PAGE -->
+    <div id="services" class="page">
+        <section style="padding: 4rem 10%;">
+            <h2 class="reveal-3d" style="text-align: center; margin-bottom: 4rem; font-size: 3rem;">Our Mastery</h2>
+            <div class="services-grid">
+                <div class="service-card reveal-card-3d">
+                    <div class="tilt-shine"></div>
+                    <div class="icon">🗿</div>
+                    <h3>Custom Portraits</h3>
+                    <div class="reveal-content">Hyper-realistic busts or relief carvings of loved ones, captured in granite or marble.</div>
+                    <button type="button" class="form-btn enquiry-trigger" style="width: fit-content; margin-top: auto;">Inquire</button>
+                </div>
+                <div class="service-card reveal-card-3d">
+                    <div class="tilt-shine"></div>
+                    <div class="icon">🛕</div>
+                    <h3>Temple Carvings</h3>
+                    <div class="reveal-content">Intricate religious iconography, pillars, and sanctum doors following traditional standards.</div>
+                    <button type="button" class="form-btn enquiry-trigger" style="width: fit-content; margin-top: auto;">Inquire</button>
+                </div>
+                <div class="service-card reveal-card-3d">
+                    <div class="tilt-shine"></div>
+                    <div class="icon">📜</div>
+                    <h3>Name Plates</h3>
+                    <div class="reveal-content">Premium address plaques and name plates etched deep into solid rock with gold leaf inlay.</div>
+                    <button type="button" class="form-btn enquiry-trigger" style="width: fit-content; margin-top: auto;">Inquire</button>
+                </div>
+                <div class="service-card reveal-card-3d">
+                    <div class="tilt-shine"></div>
+                    <div class="icon">🏛</div>
+                    <h3>Wall Panels</h3>
+                    <div class="reveal-content">Decorative sandstone panels for luxury interiors and feature walls.</div>
+                    <button type="button" class="form-btn enquiry-trigger" style="width: fit-content; margin-top: auto;">Inquire</button>
+                </div>
+                <div class="service-card reveal-card-3d">
+                    <div class="tilt-shine"></div>
+                    <div class="icon">🕯</div>
+                    <h3>Memorials</h3>
+                    <div class="reveal-content">Dignified grave stones and monuments designed to weather centuries.</div>
+                    <button type="button" class="form-btn enquiry-trigger" style="width: fit-content; margin-top: auto;">Inquire</button>
+                </div>
+                <div class="service-card reveal-card-3d">
+                    <div class="tilt-shine"></div>
+                    <div class="icon">🏆</div>
+                    <h3>Corporate Art</h3>
+                    <div class="reveal-content">Custom stone trophies and office installations for high-end brands.</div>
+                    <button type="button" class="form-btn enquiry-trigger" style="width: fit-content; margin-top: auto;">Inquire</button>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- GALLERY PAGE -->
+    <div id="gallery" class="page">
+        <section style="padding: 4rem 0;">
+            <div class="gallery-filters">
+                <button type="button" class="filter-btn active" onclick="filterGallery('all', event)">All</button>
+                <button type="button" class="filter-btn" onclick="filterGallery('portrait', event)">Portraits</button>
+                <button type="button" class="filter-btn" onclick="filterGallery('religious', event)">Religious</button>
+                <button type="button" class="filter-btn" onclick="filterGallery('decor', event)">Decor</button>
+                <button type="button" class="filter-btn" onclick="filterGallery('monuments', event)">Monuments</button>
+                <button type="button" class="filter-btn" onclick="filterGallery('architecture', event)">Architecture</button>
+            </div>
+            <div class="masonry" id="gallery-grid"></div>
+        </section>
+    </div>
+
+    <!-- CUSTOM ORDER PAGE -->
+    <div id="custom" class="page">
+        <section style="padding: 4rem 10%;">
+            <div style="text-align: center; margin-bottom: 3rem;" class="reveal-3d">
+                <h2>Custom Order Visualizer</h2>
+                <p>Follow the steps to configure your masterpiece.</p>
+            </div>
+
+            <div class="order-container" id="visualizer-container">
+                <div id="custom-three-wrap">
+                    <canvas id="custom-three-canvas"></canvas>
+                </div>
+                <div class="progress-container">
+                    <div id="progress-bar"></div>
+                </div>
+
+                <div class="step active" id="step-1">
+                    <h3>Step 1: Choose Your Stone</h3>
+                    <div class="stone-swatches">
+                        <div class="swatch granite" onclick="selectStone(this, 'Black Granite')">Black Granite</div>
+                        <div class="swatch marble" onclick="selectStone(this, 'White Marble')">White Marble</div>
+                        <div class="swatch sandstone" onclick="selectStone(this, 'Tan Sandstone')">Tan Sandstone</div>
+                        <div class="swatch basalt" onclick="selectStone(this, 'Grey Basalt')">Grey Basalt</div>
+                    </div>
+                </div>
+
+                <div class="step" id="step-2">
+                    <h3>Step 2: Carving Style</h3>
+                    <div class="stone-swatches">
+                        <div class="swatch" style="background: #2a2a27; border: 1px solid #555;" onclick="selectStyle(this, 'Portrait')">Portrait</div>
+                        <div class="swatch" style="background: #2a2a27; border: 1px solid #555;" onclick="selectStyle(this, 'Text/Logo')">Text / Logo</div>
+                        <div class="swatch" style="background: #2a2a27; border: 1px solid #555;" onclick="selectStyle(this, '3D Sculpture')">3D Sculpture</div>
+                        <div class="swatch" style="background: #2a2a27; border: 1px solid #555;" onclick="selectStyle(this, 'Relief Design')">Relief Design</div>
+                    </div>
+                </div>
+
+                <div class="step" id="step-3">
+                    <h3>Step 3: Select Size</h3>
+                    <div style="display: flex; flex-direction: column; gap: 1rem; margin-top: 2rem;">
+                        <label><input type="radio" name="size" value="small"> Small (Desk size - 12")</label>
+                        <label><input type="radio" name="size" value="medium"> Medium (Wall size - 24")</label>
+                        <label><input type="radio" name="size" value="large"> Large (Life size - 60"+)</label>
+                    </div>
+                </div>
+
+                <div class="step" id="step-4">
+                    <h3>Final Step: Contact Information</h3>
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 2rem;">
+                        <input type="text" placeholder="Your Name" style="background: transparent; border: 1px solid #555; padding: 10px; color: white;">
+                        <input type="email" placeholder="Email Address" style="background: transparent; border: 1px solid #555; padding: 10px; color: white;">
+                        <textarea placeholder="Special Instructions" style="grid-column: span 2; background: transparent; border: 1px solid #555; padding: 10px; color: white; height: 100px;"></textarea>
+                    </div>
+                </div>
+
+                <div class="form-btns">
+                    <button type="button" class="form-btn" id="prevBtn" onclick="changeStep(-1)" disabled>Previous</button>
+                    <button type="button" class="form-btn" id="nextBtn" onclick="changeStep(1)">Next Step</button>
+                </div>
+            </div>
+            <p style="text-align: center; margin-top: 2rem;"><button type="button" class="cta-btn enquiry-trigger">Order Now</button></p>
+        </section>
+    </div>
+
+    <!-- CONTACT PAGE -->
+    <div id="contact" class="page">
+        <section style="padding: 4rem 10%;">
+            <div style="display: grid; grid-template-columns: 1.5fr 1fr; gap: 4rem;">
+                <div>
+                    <h2 class="reveal-3d">Get in Touch</h2>
+                    <p style="margin-bottom: 2rem;">Have a specific vision in mind? Send us a message and our lead consultant will get back to you within 24 hours.</p>
+                    <form style="display: grid; gap: 1.5rem;" onsubmit="return false;">
+                        <input type="text" placeholder="Full Name" style="width: 100%; padding: 1rem; background: var(--slate); border: 1px solid #444; color: white;">
+                        <input type="email" placeholder="Email" style="width: 100%; padding: 1rem; background: var(--slate); border: 1px solid #444; color: white;">
+                        <textarea placeholder="Your Message" style="width: 100%; height: 150px; padding: 1rem; background: var(--slate); border: 1px solid #444; color: white;"></textarea>
+                        <button type="button" class="cta-btn enquiry-trigger" style="width: fit-content;">Contact Us</button>
+                    </form>
+                </div>
+                <div style="background: var(--slate); padding: 3rem; border: 1px solid var(--gold);">
+                    <h3 style="margin-bottom: 1.5rem;">Studio Location</h3>
+                    <p data-company="address">Old Raigad Road,<br>District Raigad, Maharashtra<br>India - 402103</p>
+                    <br>
+                    <h3 style="margin-bottom: 1.5rem;">Hours</h3>
+                    <p data-company="hours">Mon - Sat: 9 AM - 7 PM<br>Sun: By Appointment Only</p>
+                    <br>
+                    <h3 style="margin-bottom: 1.5rem;">Connect</h3>
+                    <p data-company="phone" style="margin-bottom: 0.5rem;"></p>
+                    <p data-company="email" style="margin-bottom: 1rem;"></p>
+                    <div style="display: flex; gap: 1.5rem; font-size: 1.5rem;">
+                        <a href="#" data-company="facebook" target="_blank" rel="noopener" aria-label="Facebook">📘</a>
+                        <a href="#" data-company="instagram" target="_blank" rel="noopener" aria-label="Instagram">📷</a>
+                        <a href="#" data-company="youtube" target="_blank" rel="noopener" aria-label="YouTube">🎥</a>
+                    </div>
+                </div>
+            </div>
+            <div class="map-placeholder">
+                <div>
+                    <p>📍 VIEW ON INTERACTIVE MAP</p>
+                    <p style="font-size: 0.8rem; margin-top: 10px; opacity: 0.6;">(RAIGAD STUDIO COMPLEX)</p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <div class="floating-controls">
+        <a href="#" class="control-btn whatsapp-btn enquiry-trigger" aria-label="WhatsApp quote">
+            <span style="font-size: 1.5rem;">💬</span>
+        </a>
+        <div class="whatsapp-tooltip">Get a Free Quote</div>
+        <button type="button" class="control-btn" onclick="toggleAudio()" id="audioBtn" aria-label="Toggle sound">
+            <span id="audioIcon">🔈</span>
+        </button>
+    </div>
+
+    <footer>
+        <h2 style="color: var(--gold); margin-bottom: 1rem;"><span data-company="name">THE STONE MASTER</span></h2>
+        <p style="font-size:0.75rem;opacity:0.35;margin-top:0.75rem;">Founded <span data-company="founded">2004</span></p>
+        <div class="footer-copy-row">
+            <span>© 2024 The Stone Master Raigad. All rights reserved. Crafted for Eternity.</span>
+            <button type="button" id="footer-admin-btn" class="footer-admin-link" title="Admin">🔒 Admin</button>
+        </div>
+    </footer>
+
+    </div><!-- /.page-shell -->
+
+    <!-- Enquiry quick capture -->
+    <div id="enquiry-modal" class="enquiry-modal-overlay" role="dialog" aria-modal="true" aria-labelledby="enquiry-modal-title">
+        <div class="enquiry-modal">
+            <button type="button" class="enquiry-modal-close" id="enquiry-close" aria-label="Close">&times;</button>
+            <h3 id="enquiry-modal-title">Send Enquiry</h3>
+            <label for="enquiry-name">Name <span style="color:#c0392b">*</span></label>
+            <input type="text" id="enquiry-name" autocomplete="name" required>
+            <label for="enquiry-phone">Phone <span style="color:#c0392b">*</span></label>
+            <input type="tel" id="enquiry-phone" autocomplete="tel" required>
+            <label for="enquiry-msg">Message</label>
+            <textarea id="enquiry-msg" rows="3" placeholder="What would you like carved?"></textarea>
+            <button type="button" class="enquiry-submit" id="enquiry-submit">Send Enquiry on WhatsApp</button>
+        </div>
+    </div>
+
+    <!-- Admin login modal -->
+    <div id="admin-login-modal" class="admin-modal" role="dialog" aria-modal="true">
+        <div class="admin-modal-card">
+            <button type="button" class="admin-modal-close" id="admin-login-close" aria-label="Close">&times;</button>
+            <h2 style="font-family:'Cinzel',serif;color:#c9a84c;margin-bottom:1rem;font-size:1.1rem;">Admin Access</h2>
+            <form id="admin-login-form">
+                <label for="admin-user">Username</label>
+                <input type="text" id="admin-user" autocomplete="username">
+                <label for="admin-pass">Password</label>
+                <input type="password" id="admin-pass" autocomplete="current-password">
+                <p id="admin-login-error"></p>
+                <button type="submit" class="admin-btn" style="width:100%;margin-top:0.5rem;">Enter</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Admin dashboard overlay -->
+    <div id="admin-overlay" class="admin-overlay" aria-hidden="true">
+        <aside class="admin-sidebar">
+            <div class="admin-brand">ADMIN</div>
+            <button type="button" class="admin-nav-item is-active" data-panel="dashboard"><span>🏠</span> Dashboard Overview</button>
+            <button type="button" class="admin-nav-item" data-panel="gallery"><span>🖼️</span> Gallery Manager</button>
+            <button type="button" class="admin-nav-item" data-panel="company"><span>📋</span> Company Details</button>
+            <button type="button" class="admin-nav-item" data-panel="enquiries"><span>📩</span> Enquiries <span class="admin-nav-badge" id="enquiry-nav-badge"></span></button>
+            <button type="button" class="admin-nav-item" id="admin-logout-btn"><span>🚪</span> Logout</button>
+        </aside>
+        <div class="admin-main-wrap">
+            <header class="admin-topbar">
+                <h1>THE STONE MASTER — Admin Portal</h1>
+                <div class="admin-user">
+                    <div class="admin-avatar" aria-hidden="true">👤</div>
+                    <span>Logged in as: <strong>Admin</strong></span>
+                </div>
+            </header>
+            <main class="admin-content">
+                <div id="panel-dashboard" class="admin-panel is-active">
+                    <div class="admin-cards-row">
+                        <div class="admin-stat-card"><div class="val" id="adm-total-enq">0</div><div class="lbl">Total Enquiries</div></div>
+                        <div class="admin-stat-card"><div class="val" id="adm-gallery-img-count">0</div><div class="lbl">Gallery Images</div></div>
+                        <div class="admin-stat-card"><div class="val" id="adm-gallery-vid-count">0</div><div class="lbl">Gallery Videos</div></div>
+                        <div class="admin-stat-card"><div class="val" style="font-size:1rem;" id="adm-last-login">—</div><div class="lbl">Last Login</div></div>
+                    </div>
+                    <h3 style="font-family:'Cinzel',serif;color:#c9a84c;margin:1rem 0;">Recent Enquiries</h3>
+                    <div class="admin-table-wrap">
+                        <table class="admin-table" id="adm-recent-enquiries">
+                            <thead><tr><th>Name</th><th>Message</th><th>Date</th><th>Status</th></tr></thead>
+                            <tbody></tbody>
+                        </table>
+                    </div>
+                    <p style="margin-top:1.5rem;display:flex;flex-wrap:wrap;gap:0.75rem;">
+                        <button type="button" class="admin-btn" id="btn-quick-image">Add Image</button>
+                        <button type="button" class="admin-btn" id="btn-quick-video">Add Video</button>
+                        <button type="button" class="admin-btn" id="btn-quick-enquiries">View All Enquiries</button>
+                    </p>
+                </div>
+                <div id="panel-gallery" class="admin-panel">
+                    <div class="admin-tabs">
+                        <button type="button" class="admin-tab is-active" data-tab="images">Images</button>
+                        <button type="button" class="admin-tab" data-tab="videos">Videos</button>
+                    </div>
+                    <p>
+                        <button type="button" class="admin-btn" id="btn-add-image">Add New Image</button>
+                        <button type="button" class="admin-btn" id="btn-add-video" style="margin-left:0.5rem;">Add New Video</button>
+                    </p>
+                    <div class="admin-gallery-grid" id="admin-gallery-grid"></div>
+                </div>
+                <div id="panel-company" class="admin-panel">
+                    <h3 style="font-family:'Cinzel',serif;color:#c9a84c;margin-bottom:1rem;">Company Details</h3>
+                    <div class="admin-form-grid">
+                        <label>Company Name<input type="text" id="co-name"></label>
+                        <label>Tagline / Hero subtitle<input type="text" id="co-tagline"></label>
+                        <label>About Us<textarea id="co-about" rows="4"></textarea></label>
+                        <label>Phone<input type="text" id="co-phone"></label>
+                        <label>Email<input type="email" id="co-email"></label>
+                        <label>WhatsApp Number<input type="text" id="co-whatsapp"></label>
+                        <label>Address<textarea id="co-address" rows="2"></textarea></label>
+                        <label>Business Hours<input type="text" id="co-hours"></label>
+                        <label>Facebook URL<input type="url" id="co-fb"></label>
+                        <label>Instagram URL<input type="url" id="co-ig"></label>
+                        <label>YouTube URL<input type="url" id="co-yt"></label>
+                        <label>Founded Year<input type="text" id="co-founded"></label>
+                    </div>
+                    <p style="margin-top:1rem;">
+                        <button type="button" class="admin-btn" id="company-save-btn">Save Changes</button>
+                        <button type="button" class="admin-btn" id="company-reset-btn" style="margin-left:0.5rem;">Reset to Default</button>
+                    </p>
+                </div>
+                <div id="panel-enquiries" class="admin-panel">
+                    <div class="admin-filter-bar">
+                        <label>Filter <select id="enq-filter"><option value="all">All</option><option value="New">New</option><option value="In Progress">In Progress</option><option value="Resolved">Resolved</option></select></label>
+                        <input type="search" id="enq-search" placeholder="Search name or keyword…">
+                        <button type="button" class="admin-btn" id="btn-export-csv">Export CSV</button>
+                    </div>
+                    <div class="admin-table-wrap">
+                        <table class="admin-table">
+                            <thead>
+                                <tr>
+                                    <th>#</th><th>Name</th><th>Phone</th><th>Message</th><th>Date &amp; Time</th><th>Source</th><th>Status</th><th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody id="enquiries-full-tbody"></tbody>
+                        </table>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <!-- Admin sub-modals -->
+    <div id="modal-add-image" class="admin-modal">
+        <div class="admin-modal-card">
+            <button type="button" class="admin-modal-close" id="modal-add-image-close">&times;</button>
+            <h3 style="color:#c9a84c;font-family:'Cinzel',serif;">Add Image</h3>
+            <label>Image URL<input type="url" id="add-img-url" placeholder="https://…"></label>
+            <label>Or upload<input type="file" id="add-img-file" accept="image/*"></label>
+            <label>Title<input type="text" id="add-img-title"></label>
+            <label>Category
+                <select id="add-img-cat">
+                    <option value="portrait">Portraits</option>
+                    <option value="religious">Religious</option>
+                    <option value="decor">Decor</option>
+                    <option value="monuments">Monuments</option>
+                    <option value="architecture">Architecture</option>
+                </select>
+            </label>
+            <button type="button" class="admin-btn" id="modal-add-image-confirm" style="width:100%;margin-top:0.75rem;">Confirm Add</button>
+        </div>
+    </div>
+    <div id="modal-add-video" class="admin-modal">
+        <div class="admin-modal-card">
+            <button type="button" class="admin-modal-close" id="modal-add-video-close">&times;</button>
+            <h3 style="color:#c9a84c;font-family:'Cinzel',serif;">Add Video</h3>
+            <label>Video URL (YouTube embed or MP4)<input type="url" id="add-vid-url" placeholder="https://…"></label>
+            <label>Title<input type="text" id="add-vid-title"></label>
+            <button type="button" class="admin-btn" id="modal-add-video-confirm" style="width:100%;margin-top:0.75rem;">Confirm Add</button>
+        </div>
+    </div>
+
+    <div id="admin-toast" class="admin-toast" role="status"></div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="script.js"></script>
+    <script>
+    /* Quick dashboard actions */
+    document.addEventListener('DOMContentLoaded', function () {
+        function goPanel(name) {
+            document.querySelectorAll('.admin-nav-item').forEach(function (b) {
+                if (b.getAttribute('data-panel') === name) b.click();
+            });
+        }
+        var bi = document.getElementById('btn-quick-image');
+        var bv = document.getElementById('btn-quick-video');
+        var be = document.getElementById('btn-quick-enquiries');
+        if (bi) bi.addEventListener('click', function () { goPanel('gallery'); document.getElementById('btn-add-image').click(); });
+        if (bv) bv.addEventListener('click', function () {
+            goPanel('gallery');
+            document.querySelectorAll('.admin-tab').forEach(function (t) { t.classList.remove('is-active'); });
+            var vt = document.querySelector('.admin-tab[data-tab="videos"]');
+            if (vt) { vt.classList.add('is-active'); if (typeof window.renderAdminGallery === 'function') window.renderAdminGallery(); }
+            document.getElementById('btn-add-video').click();
+        });
+        if (be) be.addEventListener('click', function () { goPanel('enquiries'); });
+    });
+    </script>
+</body>
 </html>
