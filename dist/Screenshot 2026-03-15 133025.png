@@ -1,0 +1,7 @@
+<svg width="400" height="400" xmlns="http://www.w3.org/2000/svg">
+  <rect width="400" height="400" fill="#f5f5f4"/>
+  <circle cx="200" cy="180" r="80" fill="#ea580c"/>
+  <rect x="180" y="160" width="40" height="60" fill="#ea580c"/>
+  <text x="200" y="350" text-anchor="middle" fill="#292524" font-family="Arial" font-size="14">Chhatrapati Shivaji</text>
+  <text x="200" y="370" text-anchor="middle" fill="#292524" font-family="Arial" font-size="12">Circular</text>
+</svg>
